@@ -45,3 +45,8 @@ gcloud container clusters describe my-test-cluster --region=us-central1
 ACCESS_TOKEN=$(gcloud auth print-access-token)
 curl -s -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 "https://container.googleapis.com/v1/projects/PROJECTID/locations/us-central1/clusters/my-test-cluster"
+
+# exit service account
+gcloud auth revoke
+gcloud auth login
+
