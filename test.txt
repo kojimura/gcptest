@@ -13,7 +13,7 @@ gcloud iam service-accounts keys create ~/key.json \
     --iam-account=test-sa@PROJECTID.iam.gserviceaccount.com
 
 #test
-gcloud auth activate-service-account --key-file=~/key.json
+gcloud auth activate-service-account --key-file=key.json
 gcloud config set project PROJECTID
 gcloud sql instances describe my-sql-instance
 
