@@ -1,0 +1,20 @@
+# create service account
+gcloud iam service-accounts create test-sa \
+    --description="test service addount" \
+    --display-name="Test Service Account"
+
+# grant authority
+gcloud projects add-iam-policy-binding PROJECTID \
+  --member="serviceAccount:test-sa@PROJECTID.iam.gserviceaccount.com" \
+  --role="roles/cloudsql.viewer"
+
+# key
+gcloud iam service-accounts keys create ~/key.json \
+    --iam-account=test-sa@PROJECTID.iam.gserviceaccount.com
+
+#test
+gcloud auth activate-service-account --key-file=~/key.json
+gcloud config set project PROJECTID
+gcloud sql instances describe my-sql-instance
+
+
