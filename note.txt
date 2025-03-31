@@ -3,7 +3,7 @@ gcloud iam service-accounts create test-sa \
     --description="test service addount" \
     --display-name="Test Service Account"
 
-# grant authority
+# grant IAM role for SQL view
 gcloud projects add-iam-policy-binding PROJECTID \
   --member="serviceAccount:test-sa@PROJECTID.iam.gserviceaccount.com" \
   --role="roles/cloudsql.viewer"
@@ -12,16 +12,36 @@ gcloud projects add-iam-policy-binding PROJECTID \
 gcloud iam service-accounts keys create ~/key.json \
     --iam-account=test-sa@PROJECTID.iam.gserviceaccount.com
 
-# confirm
+# confirm IAM role
 gcloud projects get-iam-policy PROJECTID |grep -2 test-sa
 
-#test
+# test gcloud sql instances command
 gcloud auth activate-service-account --key-file=key.json
 gcloud config set project PROJECTID
 gcloud sql instances describe my-sql-instance
 
+# test API sql
 ACCESS_TOKEN=$(gcloud auth activate-service-account --key-file=key.json --quiet && \
                gcloud auth print-access-token)
 curl -s -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 "https://sqladmin.googleapis.com/sql/v1beta4/projects/PROJECTID/instances/my-sql-instance"
 
+# remove IAM role for SQL
+gcloud projects remove-iam-policy-binding PROJECTID \
+  --member="serviceAccount:test-sa@PROJECTID.iam.gserviceaccount.com" \
+  --role="roles/cloudsql.viewer"
+
+# grant IAM role for GKE
+gcloud projects add-iam-policy-binding PROJECTID \
+  --member="serviceAccount:test-sa@PROJECTID.iam.gserviceaccount.com" \
+ --role="roles/container.viewer"
+
+# test gcloud container clusters command
+gcloud auth activate-service-account --key-file=key.json
+gcloud config set project PROJECTID
+gcloud container clusters describe my-test-cluster --region=us-central1
+
+# test API cluster
+ACCESS_TOKEN=$(gcloud auth print-access-token)
+curl -s -H "Authorization: Bearer ${ACCESS_TOKEN}" \
+"https://container.googleapis.com/v1/projects/PROJECTID/locations/us-central1/clusters/my-test-cluster"
