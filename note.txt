@@ -1,0 +1,18 @@
+#-------------------
+redis
+#-------------------
+# Create a Memorystore for Redis instance by using the Google Cloud console
+redis-prime-script-451106-j7
+# monitor alert
+
+#-------------------
+artigact registry
+#-------------------
+containeranalysis.occurrences.list
+
+gcloud projects get-iam-policy [PROJECT_ID] \
+  --flatten="bindings[].members" \
+  --format='table(bindings.role)' \
+  --filter="bindings.members:[ACCOUNT_EMAIL]"
+
+
