@@ -20,5 +20,7 @@ gcloud projects get-iam-policy [PROJECT_ID] \
   --filter="bindings.members:[ACCOUNT_EMAIL]"
 
 https://cloud.google.com/artifact-analysis/docs/access-control
+https://cloud.google.com/iam/docs/roles-overview?hl=ja
+
 
 
