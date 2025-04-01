@@ -2,8 +2,12 @@
 redis
 #-------------------
 # Create a Memorystore for Redis instance by using the Google Cloud console
-redis-prime-script-451106-j7
+
 # monitor alert
+
+https://cloud.google.com/memorystore/docs/redis/monitor-instances#set_an_alert_for_high_redis_engine_cpu_utilization
+Enter a decimal value between 0 and 1 to indicate the threshold percentage. For example .35 indicates 35%
+
 
 #-------------------
 artigact registry
