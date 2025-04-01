@@ -50,3 +50,24 @@ curl -s -H "Authorization: Bearer ${ACCESS_TOKEN}" \
 gcloud auth revoke
 gcloud auth login
 
+# minimum permission
+
+gcloud iam roles create sql_and_gke_viewer \
+  --project=PROJECTID \
+  --title="Cloud SQL and GKE Describe Only" \
+  --description="Only allows describe for Cloud SQL and GKE clusters" \
+  --permissions=cloudsql.instances.get,container.clusters.get \
+  --stage=GA
+
+gcloud projects add-iam-policy-binding PROJECTID \
+  --member="serviceAccount:test-sa@PROJECTID.iam.gserviceaccount.com" \
+  --role="projects/PROJECTID/roles/sql_and_gke_viewer"
+
+gcloud sql instances describe my-sql-instance \
+  --project=PROJECTID \
+  --impersonate-service-account=test-sa@PROJECTID.iam.gserviceaccount.com
+
+gcloud container clusters describe my-cluster \
+  --region=us-central1 \
+  --project=PROJECTID \
+  --impersonate-service-account=test-sa@PROJECTID.iam.gserviceaccount.com
