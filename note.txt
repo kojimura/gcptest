@@ -23,6 +23,10 @@ Memorystore for Redis でサポートされているモニタリング指標
 https://cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=ja
 Redis サーバーによって使用された 1 分あたりの CPU 使用時間。システム / ユーザー空間と親 / 子関係ごとに分けられます。CPU 秒は、Redis サーバーのメインプロセスのすべてのスレッドの合計を示します。メインスレッドの CPU 使用率のみを確認する場合は、メインスレッド CPU 秒の指標を確認します。
 
+指標ベースのアラート ポリシーの動作
+https://cloud.google.com/monitoring/alerts/concepts-indepth?hl=ja
+
+
 Configure the query performance factor for Redis Query Engine in Redis Enterprise
 https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/query-performance-factor/
 
