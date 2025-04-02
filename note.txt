@@ -33,7 +33,8 @@ https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/
 Redis Enterprise Software observability and monitoring guidance
 https://redis.io/docs/latest/integrate/prometheus-with-redis-enterprise/observability/
 
-
+gcloud monitoring policies list
+gcloud monitoring policies describe [POLICY_NAME]
 
 
 
