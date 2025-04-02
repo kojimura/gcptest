@@ -10,7 +10,7 @@ Enter a decimal value between 0 and 1 to indicate the threshold percentage. For 
 
 
 #-------------------
-artigact registry
+artifact registry
 #-------------------
 containeranalysis.occurrences.list
 
@@ -37,8 +37,9 @@ gcloud policy-troubleshoot iam //artifactregistry.googleapis.com/projects/PROJEC
   --resource-type=artifactregistry.googleapis.com/Repository \
   --principal-email="E_MAIL"
 
-
-
+#-------------------
+asset inventory
+#-------------------
 gcloud asset query \
    --folder=[フォルダID] \
     --statement="
