@@ -8,6 +8,30 @@ redis
 https://cloud.google.com/memorystore/docs/redis/monitor-instances#set_an_alert_for_high_redis_engine_cpu_utilization
 Enter a decimal value between 0 and 1 to indicate the threshold percentage. For example .35 indicates 35%
 
+Cloud Monitoring の概要
+https://cloud.google.com/monitoring/docs/monitoring-overview
+
+Redis インスタンスをモニタリングする
+https://cloud.google.com/memorystore/docs/redis/monitor-instances?hl=ja
+
+google cloud metrics
+https://cloud.google.com/monitoring/api/metrics_gcp#compute/instance/cpu/utilization
+CPU 秒	redis.googleapis.com/stats/cpu_utilization
+Redis サーバーによって使用された 1 分あたりの CPU 使用時間。システム / ユーザー空間と親 / 子関係ごとに分けられます。CPU 秒は、Redis サーバーのメインプロセスのすべてのスレッドの合計を示します。メインスレッドの CPU 使用率のみを確認する場合は、メインスレッド CPU 秒の指標を確認します。
+
+Memorystore for Redis でサポートされているモニタリング指標
+https://cloud.google.com/memorystore/docs/redis/supported-monitoring-metrics?hl=ja
+Redis サーバーによって使用された 1 分あたりの CPU 使用時間。システム / ユーザー空間と親 / 子関係ごとに分けられます。CPU 秒は、Redis サーバーのメインプロセスのすべてのスレッドの合計を示します。メインスレッドの CPU 使用率のみを確認する場合は、メインスレッド CPU 秒の指標を確認します。
+
+Configure the query performance factor for Redis Query Engine in Redis Enterprise
+https://redis.io/docs/latest/operate/oss_and_stack/stack-with-enterprise/search/query-performance-factor/
+
+Redis Enterprise Software observability and monitoring guidance
+https://redis.io/docs/latest/integrate/prometheus-with-redis-enterprise/observability/
+
+
+
+
 
 #-------------------
 artifact registry
