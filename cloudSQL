@@ -27,6 +27,10 @@ Cloud Shell などからCloud SQLのプライベートIPに接続できるかテ
 プライベート IP を構成する
 https://cloud.google.com/sql/docs/mysql/configure-private-ip?hl=ja
 
+ファイアウォールにタグを使用する
+https://cloud.google.com/firewall/docs/use-tags-for-firewalls?hl=ja
+
 Cloud Run サービスから Cloud SQL にダイレクト VPC 下り (外向き) を使ってプライベート接続する
 https://zenn.dev/google_cloud_jp/articles/cloudrun-cloudsql
+
 
