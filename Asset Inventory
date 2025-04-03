@@ -1,0 +1,20 @@
+#-------------------
+asset inventory
+#-------------------
+gcloud asset query \
+   --folder=[フォルダID] \
+    --statement="
+      SELECT
+        name, assetType
+      FROM
+         sqladmin_googleapis_com_Instance
+      LIMIT 2"
+
+gcloud asset search-all-resources \
+   --scope='folders/[フォルダID]' \
+   --asset-types='sqladmin.googleapis.com/Instance' \
+   --order-by='createTime' --read-mask="*" \
+   --format="table(name, versionedResources.resource.region, versionedResources.resource.databaseInstalledVersion, state, versionedResources.resource.settings.activationPolicy)"
+
+[1] https://cloud.google.com/asset-inventory/docs/query-assets-with-sql?hl=ja
+[2] https://cloud.google.com/asset-inventory/docs/search-resources?hl=ja#gcloud
