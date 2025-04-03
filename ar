@@ -1,0 +1,27 @@
+#-------------------
+artifact registry
+#-------------------
+containeranalysis.occurrences.list
+
+gcloud projects get-iam-policy [PROJECT_ID] \
+  --flatten="bindings[].members" \
+  --format='table(bindings.role)' \
+  --filter="bindings.members:[ACCOUNT_EMAIL]"
+
+gcloud iam roles describe roles/owner|grep containeranalysis
+
+https://cloud.google.com/artifact-analysis/docs/access-control
+https://cloud.google.com/iam/docs/roles-overview?hl=ja
+
+gcloud artifacts repositories list --format="table(name,location,projectId)"
+
+gcloud artifacts repositories describe [REPOSITORY_NAME] --location=[REGION]
+
+gcloud services list --enabled --project=[PROJECT_ID] | grep containeranalysis
+
+gcloud policy-troubleshoot iam troubleshoot --help
+
+gcloud policy-troubleshoot iam //artifactregistry.googleapis.com/projects/PROJECT_ID/locations/asia-northeast1/repositories/REPO_NAME \
+  --permission=artifactregistry.repositories.downloadArtifacts \
+  --resource-type=artifactregistry.googleapis.com/Repository \
+  --principal-email="E_MAIL"
