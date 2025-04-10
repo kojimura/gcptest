@@ -1,4 +1,11 @@
 #-------------------
+postgreSQL SSL/TLS version
+#-------------------
+SELECT * FROM "pg_catalog"."pg_settings" LIMIT 1000;
+SELECT * FROM "pg_catalog"."pg_settings" WHERE "name" IS 'ssl_min_protocol_version';
+SELECT * FROM "pg_catalog"."pg_settings" WHERE "name" LIKE '%ssl%';
+
+#-------------------
 cloud SQL - Cloud Run
 #-------------------
 1.ファイアウォールルールの確認:
