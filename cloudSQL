@@ -5,6 +5,12 @@ SELECT * FROM "pg_catalog"."pg_settings" LIMIT 1000;
 SELECT * FROM "pg_catalog"."pg_settings" WHERE "name" IS 'ssl_min_protocol_version';
 SELECT * FROM "pg_catalog"."pg_settings" WHERE "name" LIKE '%ssl%';
 
+
+The default value shown for ssl_min_protocol_version is TLSv1 (TLS 1.0), 
+but actual Cloud SQL instances reject TLS 1.0 and require TLS 1.2 or higher. 
+This may confuse users. Please confirm and update the documentation.
+
+
 #-------------------
 cloud SQL - Cloud Run
 #-------------------
