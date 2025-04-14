@@ -1,6 +1,6 @@
 # prepare Cloud SQL 
 # public IP
-# 承認済みネットワークに、自分の外部IPを追加
+# Authorized networks: client external IP
 
 # install cobol
 sudo apt update
