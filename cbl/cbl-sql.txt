@@ -1,6 +1,8 @@
 # prepare Cloud SQL 
 # public IP
-# Authorized networks: client external IP
+# Authorized networks: client external IP 
+#   curl ifconfig.me
+
 
 # install cobol
 sudo apt update
