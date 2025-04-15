@@ -1,4 +1,24 @@
 #-------------------
+SQL maintenance
+#-------------------
+
+https://cloud.google.com/sql/docs/mysql/maintenance?hl=ja#post-maintenance
+https://cloud.google.com/sql/docs/mysql/set-maintenance-window?hl=ja#rest-v1
+
+curl -s -X GET \
+     -H "Authorization: Bearer $(gcloud auth print-access-token)" \
+     "https://sqladmin.googleapis.com/v1/projects/prime-script-451106-j7/instances/mydb" \
+ | jq '{maintenanceVersion: .maintenanceVersion, scheduledMaintenance: .scheduledMaintenance}'
+{
+  "maintenanceVersion": "POSTGRES_16_8.R20250302.00_04",
+  "scheduledMaintenance": {
+    "canReschedule": true,
+    "startTime": "2025-04-22T18:00:00Z",
+    "scheduleDeadlineTime": "2025-05-20T18:00:00Z"
+  }
+}
+
+#-------------------
 postgreSQL SSL/TLS version
 #-------------------
 SELECT * FROM "pg_catalog"."pg_settings" LIMIT 1000;
