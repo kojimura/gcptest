@@ -1,4 +1,24 @@
 #-------------------
+Go module repo publish fails for go1.24 go.mod files containing tools
+#-------------------
+https://issuetracker.google.com/issues/400233777?pli=1
+```
+go version
+mkdir go124_tool_test
+cd go124_tool_test
+go mod init my.org/testpackage
+go get -tool golang.org/x/tools/cmd/stringer
+go mod tidy
+gcloud artifacts go upload \
+  --project=prime-script-451106-j7 \
+  --repository=go-repo \
+  --location=us-central1 \
+  --module-path=my.org/testpackage \
+  --version=v1.0.0
+```
+ERROR: (gcloud.artifacts.go.upload) Request contains an invalid argument.
+
+#-------------------
 artifact registry
 #-------------------
 containeranalysis.occurrences.list
