@@ -28,4 +28,4 @@ fi
 
 actual_size_bytes=$(stat -c "%s" "$output_file")
 actual_size_mb=$(echo "scale=2; $actual_size_bytes / (1024 * 1024)" | bc)
-echo "ファイル '$output_file' を ${actual_size_mb} MB genarated"
+echo "$output_file ${actual_size_mb} MB genarated"
