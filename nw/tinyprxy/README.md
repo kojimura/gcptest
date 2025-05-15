@@ -15,7 +15,7 @@ docker run -d -p 127.0.0.1:8888:8888 --name dummy-proxy dummy-proxy
 ```
 4. set proxy
 ```
-http://127.0.0.1:8888
+127.0.0.1:8888
 ```
 5. maintenance
 ```
