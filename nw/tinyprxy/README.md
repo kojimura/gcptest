@@ -7,7 +7,7 @@ Dockerfile
 ```
 2. build the docker image
 ```
-docker build -t dummy-proxy .
+docker build --no-cache -t dummy-proxy .
 ```
 3. run docker container
 ```
